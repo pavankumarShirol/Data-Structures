@@ -15,6 +15,7 @@ int main()
     printf("Enter a number\n");
     scanf("%d",&n);
     fprintf(fp,"Number = %d",n);
+    fclose(fp); // Close the file after writing to it
     printf("success\n");
     return 0;
 

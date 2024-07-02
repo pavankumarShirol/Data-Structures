@@ -112,6 +112,7 @@ int delete(struct queue *pq)
     if(count==0)
     {
         printf("Queue is Empty\n");
+        return -1;
     }
     else
     {   

@@ -1,50 +1,47 @@
-// c progrsme to find higher precedence operator in infix exoression,,.
-
 #include<stdio.h>
 #include<stdlib.h>
 
-int precedance(char);
+int precedence(char);
 
 int main()
 {
-    char str[20],ch,high;
+    char str[20], ch, high = '+'; // Initialize high with a default lowest precedence operator
     int i;
 
-    printf("Enter the expression");
-    scanf("%s",str);
+    printf("Enter the expression: ");
+    scanf("%s", str);
 
-    for(i=0;str[i]!='\0';i++)
+    for(i = 0; str[i] != '\0'; i++)
     {
-        ch=str[i];
+        ch = str[i];
 
-        if(ch=='+' || ch=='-' || ch=='*' || ch=='/' || ch=='(' || ch==')')
+        if(ch == '+' || ch == '-' || ch == '*' || ch == '/' || ch == '(' || ch == ')')
         {
-            if(ch=='(')
+            if(ch == '(')
             {
-                high=0;
+                high = '('; // Update high for '('
             }
-            else if(ch==')')
+            else if(ch == ')')
             {
-                break;
+                break; // Stop scanning further for ')'
             }
-            else if(precedance(high)<precedance(ch))
+            else if(precedence(ch) > precedence(high))
             {
-                high=ch;
+                high = ch; // Update high if current operator has higher precedence
             }
         }
     }
 
-    printf("Highest priority operator is  =  %c",high);
+    printf("Highest priority operator is  =  %c\n", high);
+    return 0;
 }
 
-int precedance( char ch)
+int precedence(char ch)
 {
     if(ch == '+' || ch == '-')
-    return 1;
-
+        return 1;
     else if(ch == '*' || ch == '/')
-    return 2;
-
-    return 0;
-
+        return 2;
+    else // Parentheses or other characters
+        return 0;
 }

@@ -94,9 +94,10 @@ NODEPTR insert(NODEPTR t, int ele)
                 curr = curr->right;
         }
 
-        if (ele < prev->info)
+        if (prev == NULL) // This handles the case when the tree was empty initially
+        t = p;
+        else if (ele < prev->info)
             prev->left = p;
-
         else
             prev->right = p;
 

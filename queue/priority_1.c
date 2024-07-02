@@ -21,7 +21,7 @@ int main()
     struct queue pq[3];
     int choice,qno,ele,i;
 
-    for(i=1;i<=3;i++)   //for initialisation
+    for(i=0;i<3;i++)   //for initialisation
     {
         pq[i].front=0;
         pq[i].rear=-1;
@@ -55,7 +55,7 @@ int main()
                 break;
 
             case 3:
-                for(i=1;i<=3;i++)
+                for (i = 0; i < 3; i++)
                 {
                     printf("The Elements of  %d  queue is as follows\n",i+1);
 
@@ -96,13 +96,12 @@ int delete(struct queue *pq)
     if(pq->count==0)
     {
         printf("Queue is Empty\n");
+        return -1;
     }
     else
     {   
         ele=pq->a[pq->front];
-
         pq->front=(pq->front+1)% SIZE;
-
         pq->count --;
 
         return ele;

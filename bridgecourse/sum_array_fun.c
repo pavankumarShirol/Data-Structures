@@ -17,7 +17,7 @@ int main()
 
     printf("enter the value of n :");
     scanf("%d",&n);
-    printf("enter the %d Elements");
+    printf("enter the %d Elements",n);
     for(i=0;i<n;i++)
     {
         scanf("%d",&a[i]);

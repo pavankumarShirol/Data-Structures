@@ -81,6 +81,12 @@ NODEPTR insert(NODEPTR t, int ele)
                 curr = curr->right;
         }
 
+        // Insertion
+        if (prev == NULL) {
+            // This means t is NULL, and p is the root of the tree
+            return p;
+        }
+
         if (ele < prev->info)
             prev->left = p;
 

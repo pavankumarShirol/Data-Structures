@@ -47,24 +47,23 @@ void display(struct BOOK b[],int n)
         printf("Name : %s \tEdition : %d\tPrice : %f\n",b[i].name,b[i].e,b[i].p);
     }
 }
-void compute(struct BOOK b[],int n)
+void compute(struct BOOK b[], int n)
 {
-    int i,j;
+    int i;
     float high;
 
-    high=b[0].p;
+    high = b[0].p;
+    int j = 0; // Initialize j here to avoid uninitialized variable error
 
-    for(i=1;i<n;i++)
+    for (i = 1; i < n; i++)
     {
-        if(b[i].p>high)
+        if (b[i].p > high)
         {
-            high=b[i].p;
-            j=i;
+            high = b[i].p;
+            j = i; // Update j when a higher price is found
         }
     }
-        
 
-     printf("Highest prize book = %f",high);
-
-     printf("Title of the highest prize Book = %s",b[j].name );
+    printf("Highest price book = %f\n", high);
+    printf("Title of the highest price Book = %s\n", b[j].name);
 }

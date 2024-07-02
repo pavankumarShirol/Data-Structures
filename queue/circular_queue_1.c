@@ -87,6 +87,7 @@ int delete(struct queue *cq)
     if(cq->front==-1)
     {
         printf("Circular Queue is Empty");
+        return -1;
     }    
 
     else

@@ -54,44 +54,45 @@ int main()
 }
 NODEPTR insertorder(NODEPTR l, int ele)
 {
-  NODEPTR p, q, r,s;
-  p = getnode();
-  p->info = ele;
-  p->next = NULL;
+    NODEPTR p, q, r, s;
+    p = getnode();
+    p->info = ele;
+    p->next = NULL;
 
-  if (l == NULL || ele <= l->info)
-  {
-      p->next=l;
-      l=p;
-      return l; 
-  }
-  else
-  {
-         for(q=l;q!=NULL;q=q->next)
-         {
-            r=q;
-         }
+    if (l == NULL || ele <= l->info)
+    {
+        p->next = l;
+        l = p;
+        return l;
+    }
+    else
+    {
+        // Initialize r and s
+        r = l;
+        s = l;
 
-        if(ele>=r->info)
+        for (q = l; q != NULL; q = q->next)
         {
-          r->next=p;
-          return l;
+            r = q;
         }
-       
 
+        if (ele >= r->info)
+        {
+            r->next = p;
+            return l;
+        }
         else
         {
-          for(q=l;ele>=q->info;q=q->next)
-              s=q;
+            for (q = l; ele >= q->info; q = q->next)
+                s = q;
 
-          p->next=s->next;
-          s->next=p;
-          return l;
+            p->next = s->next;
+            s->next = p;
+            return l;
         }
-       
-  }
- 
+    }
 }
+
 
 NODEPTR getnode()
 {
